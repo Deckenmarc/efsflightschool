@@ -1,0 +1,82 @@
+.location-card {
+  border: 1px solid #C7D3DC;
+  border-radius: 8px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.location-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.location-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.location-name {
+  font-size: 1.5rem;
+  color: #012B36;
+  margin: 0;
+  font-weight: 600;
+}
+
+.location-icao {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+.location-icao strong {
+  color: #012B36;
+  font-weight: 600;
+}
+
+.location-address {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.location-description {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+  padding-top: 0.5rem;
+  border-top: 1px solid #E5E5E5;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .location-content {
+    padding: 1rem;
+  }
+
+  .location-name {
+    font-size: 1.25rem;
+  }
+
+  .location-icao,
+  .location-address {
+    font-size: 0.9rem;
+  }
+
+  .location-description {
+    font-size: 0.85rem;
+  }
+}

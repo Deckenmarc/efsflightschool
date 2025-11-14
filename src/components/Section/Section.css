@@ -1,0 +1,23 @@
+.section {
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  width: 100%;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+}

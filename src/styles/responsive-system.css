@@ -1,0 +1,439 @@
+/**
+ * Responsive Design System
+ * Requirements: 11.1, 11.2, 11.3, 11.4, 11.5
+ * 
+ * This file contains comprehensive responsive design rules
+ * to ensure the website works properly on all devices.
+ */
+
+/* ============================================
+   BREAKPOINT DEFINITIONS
+   ============================================ */
+/*
+  Mobile: 0-767px
+  Tablet: 768-1023px
+  Desktop: 1024px+
+*/
+
+/* ============================================
+   PREVENT HORIZONTAL SCROLLING
+   Requirement 11.5
+   ============================================ */
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* Ensure all major containers respect viewport width */
+#root,
+.app,
+main,
+section,
+.container,
+.section-container {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   RESPONSIVE IMAGES
+   Requirement 11.3
+   ============================================ */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure images scale proportionally */
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Prevent images from causing horizontal scroll */
+img,
+picture {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY SCALING
+   Requirement 11.2
+   ============================================ */
+
+/* Desktop (default) - already defined in index.css */
+
+/* Tablet: 768-1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 1.0625rem; /* 17px */
+  }
+  
+  h1 {
+    font-size: 2.5rem; /* 40px */
+  }
+  
+  h2 {
+    font-size: 2rem; /* 32px */
+  }
+  
+  h3 {
+    font-size: 1.75rem; /* 28px */
+  }
+  
+  h4 {
+    font-size: 1.375rem; /* 22px */
+  }
+  
+  p,
+  li,
+  span {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Mobile: <768px */
+@media (max-width: 767px) {
+  body {
+    font-size: 1rem; /* 16px */
+  }
+  
+  h1 {
+    font-size: 2rem; /* 32px */
+  }
+  
+  h2 {
+    font-size: 1.75rem; /* 28px */
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* 24px */
+  }
+  
+  h4 {
+    font-size: 1.25rem; /* 20px */
+  }
+  
+  p,
+  li,
+  span {
+    font-size: 1rem;
+  }
+  
+  small {
+    font-size: 0.875rem; /* 14px */
+  }
+}
+
+/* ============================================
+   MINIMUM TOUCH TARGET SIZES
+   Requirement 11.4
+   ============================================ */
+@media (max-width: 767px) {
+  /* All interactive elements must be at least 44x44px */
+  a:not(.inline-link),
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  select,
+  [role="button"],
+  [tabindex]:not([tabindex="-1"]) {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Navigation links */
+  .nav-link,
+  .mobile-menu-link,
+  .footer-link {
+    min-height: 44px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Buttons */
+  button,
+  .button,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  /* Form inputs */
+  input,
+  textarea,
+  select {
+    min-height: 44px;
+    padding: var(--spacing-sm);
+  }
+  
+  /* Exception for inline text links */
+  p a,
+  li a,
+  span a,
+  .inline-link {
+    min-width: auto;
+    min-height: auto;
+  }
+}
+
+/* ============================================
+   RESPONSIVE GRID LAYOUTS
+   Requirement 11.1
+   ============================================ */
+
+/* Desktop: maintain grid structure */
+.responsive-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.responsive-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.responsive-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+/* Tablet: reduce columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .responsive-grid-2 {
+    gap: var(--spacing-md);
+  }
+  
+  .responsive-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .responsive-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+/* Mobile: single column */
+@media (max-width: 767px) {
+  .responsive-grid-2,
+  .responsive-grid-3,
+  .responsive-grid-4 {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+/* ============================================
+   RESPONSIVE SPACING
+   Requirement 11.1
+   ============================================ */
+
+/* Tablet spacing adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+/* Mobile spacing adjustments */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  /* Reduce spacing between elements */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  p {
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+/* ============================================
+   RESPONSIVE CONTENT STACKING
+   Requirement 11.1
+   ============================================ */
+
+/* Two-column layouts should stack on mobile */
+@media (max-width: 767px) {
+  .two-column-layout,
+  .content-with-image,
+  .text-image-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+  
+  .two-column-layout > *,
+  .content-with-image > *,
+  .text-image-layout > * {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+/* Hide/Show based on breakpoint */
+.mobile-only {
+  display: none;
+}
+
+.tablet-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .mobile-only {
+    display: block;
+  }
+  
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-only {
+    display: block;
+  }
+  
+  .hide-tablet {
+    display: none !important;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hide-desktop {
+    display: none !important;
+  }
+  
+  .mobile-only,
+  .tablet-only {
+    display: none;
+  }
+}
+
+/* ============================================
+   RESPONSIVE TEXT ALIGNMENT
+   ============================================ */
+@media (max-width: 767px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+  
+  .text-left-mobile {
+    text-align: left !important;
+  }
+  
+  .text-right-mobile {
+    text-align: right !important;
+  }
+}
+
+/* ============================================
+   RESPONSIVE FLEXBOX
+   ============================================ */
+@media (max-width: 767px) {
+  .flex-column-mobile {
+    flex-direction: column !important;
+  }
+  
+  .flex-wrap-mobile {
+    flex-wrap: wrap !important;
+  }
+}
+
+/* ============================================
+   PREVENT LAYOUT SHIFT
+   ============================================ */
+
+/* Ensure consistent box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent content from causing horizontal scroll */
+* {
+  max-width: 100%;
+}
+
+/* Allow specific elements to exceed container */
+html,
+body,
+.full-width,
+.hero,
+.navigation,
+.footer {
+  max-width: none;
+}
+
+/* ============================================
+   RESPONSIVE MEDIA QUERIES SUMMARY
+   ============================================ */
+/*
+  Mobile First Approach:
+  1. Base styles are for mobile (0-767px)
+  2. Tablet styles enhance for medium screens (768-1023px)
+  3. Desktop styles enhance for large screens (1024px+)
+  
+  Key Breakpoints:
+  - 767px: Mobile/Tablet boundary
+  - 1023px: Tablet/Desktop boundary
+  
+  Requirements Addressed:
+  - 11.1: All sections stack properly on mobile
+  - 11.2: Responsive typography scaling
+  - 11.3: Images scale proportionally
+  - 11.4: Minimum touch target sizes (44x44px)
+  - 11.5: No horizontal scrolling
+*/

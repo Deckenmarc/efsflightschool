@@ -1,0 +1,138 @@
+/**
+ * Contact section styles
+ * Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 9.6
+ */
+
+.contact {
+  color: #FBF7E4;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.contact-content {
+  width: 100%;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  color: #FBF7E4;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(251, 247, 228, 0.05);
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(251, 247, 228, 0.1);
+}
+
+.contact-icon {
+  width: 32px;
+  height: 32px;
+  color: #F37626;
+  flex-shrink: 0;
+}
+
+.contact-link {
+  color: #FBF7E4;
+  text-decoration: none;
+  font-size: 1.125rem;
+  transition: color 0.3s ease;
+  /* Ensure minimum touch target size for accessibility */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  color: #F37626;
+  outline: 2px solid #F37626;
+  outline-offset: 2px;
+}
+
+.contact-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.contact-image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.contact-illustration {
+  width: 150px;
+  height: 150px;
+  color: #FBF7E4;
+  opacity: 0.6;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 767px) {
+  .contact-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-info {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+  }
+
+  .contact-link {
+    font-size: 1rem;
+  }
+
+  .contact-phones {
+    align-items: center;
+  }
+
+  .contact-illustration {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-link {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Ensure accessibility - high contrast text on dark background */
+/* Color contrast ratio #FBF7E4 on #012B36 is 12.8:1 (exceeds WCAG AA requirement of 4.5:1) */
+/* Color contrast ratio #F37626 on #012B36 is 4.8:1 (meets WCAG AA requirement) */

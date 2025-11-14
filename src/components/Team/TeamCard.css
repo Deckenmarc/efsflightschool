@@ -1,0 +1,57 @@
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.team-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--spacing-sm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.team-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #012B36;
+  margin: var(--spacing-sm) 0;
+}
+
+.team-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #A84A0C;
+  margin: var(--spacing-xs) 0;
+}
+
+.team-description {
+  font-size: 1rem;
+  color: #333;
+  margin-top: var(--spacing-xs);
+  line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .team-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .team-name {
+    font-size: 1.3rem;
+  }
+
+  .team-title {
+    font-size: 1rem;
+  }
+
+  .team-description {
+    font-size: 0.95rem;
+  }
+}

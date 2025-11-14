@@ -1,0 +1,62 @@
+.fleet-card {
+  border: 1px solid #C7D3DC;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.fleet-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.fleet-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.fleet-name {
+  font-size: 1.5rem;
+  color: #012B36;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.fleet-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fleet-specs p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+.fleet-specs strong {
+  color: #012B36;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .fleet-card {
+    padding: 1rem;
+  }
+
+  .fleet-name {
+    font-size: 1.25rem;
+  }
+
+  .fleet-specs p {
+    font-size: 0.9rem;
+  }
+}

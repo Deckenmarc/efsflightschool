@@ -1,0 +1,408 @@
+/**
+ * Browser Compatibility Fixes
+ * Cross-browser CSS fixes for Chrome, Firefox, Safari, Edge, and mobile browsers
+ * Task 18: Cross-browser and device testing
+ */
+
+/* ============================================
+   SAFARI-SPECIFIC FIXES
+   ============================================ */
+
+/* Fix for Safari's smooth scrolling behavior */
+@supports (-webkit-overflow-scrolling: touch) {
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent rubber-band scrolling issues on iOS */
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+}
+
+/* Safari flexbox fixes */
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) {
+    /* Safari-specific flex fixes */
+    .nav-container,
+    .fleet-grid,
+    .team-grid,
+    .location-grid {
+      -webkit-box-sizing: border-box;
+    }
+  }
+}
+
+/* Fix for Safari's position: fixed with transform issues */
+.navigation {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* ============================================
+   FIREFOX-SPECIFIC FIXES
+   ============================================ */
+
+/* Firefox smooth scroll enhancement */
+@-moz-document url-prefix() {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Firefox focus outline improvements */
+  *:focus {
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================
+   EDGE-SPECIFIC FIXES
+   ============================================ */
+
+/* Edge CSS Grid fixes */
+@supports (-ms-ime-align: auto) {
+  .fleet-grid,
+  .team-grid,
+  .location-grid {
+    display: -ms-grid;
+  }
+}
+
+/* Modern Edge (Chromium-based) */
+@supports (font-variation-settings: normal) {
+  /* Edge-specific optimizations */
+  body {
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* ============================================
+   IOS SAFARI-SPECIFIC FIXES
+   ============================================ */
+
+/* Fix for iOS Safari viewport height issues */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific styles */
+  .hero {
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Fix for iOS Safari 100vh issue */
+  body {
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Prevent iOS Safari from zooming on input focus */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+  
+  /* Fix for iOS Safari touch delay */
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+  }
+  
+  /* Improve iOS Safari scrolling performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ============================================
+   CHROME/CHROMIUM-SPECIFIC FIXES
+   ============================================ */
+
+/* Chrome smooth scrolling optimization */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Chrome-specific font smoothing */
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ============================================
+   CROSS-BROWSER FOCUS FIXES
+   ============================================ */
+
+/* Remove default focus outline and add custom one */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Firefox-specific focus-visible polyfill */
+@supports not selector(:focus-visible) {
+  *:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+  }
+  
+  *:active {
+    outline: none;
+  }
+}
+
+/* ============================================
+   CROSS-BROWSER FLEXBOX FIXES
+   ============================================ */
+
+/* Flexbox fixes for older browsers */
+.nav-container,
+.fleet-grid,
+.team-grid,
+.location-grid {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* ============================================
+   CROSS-BROWSER GRID FIXES
+   ============================================ */
+
+/* CSS Grid fallback for older browsers */
+@supports not (display: grid) {
+  .fleet-grid,
+  .team-grid,
+  .location-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .fleet-card,
+  .team-card,
+  .location-card {
+    flex: 1 1 calc(50% - 2rem);
+    margin: 1rem;
+  }
+  
+  @media (max-width: 767px) {
+    .fleet-card,
+    .team-card,
+    .location-card {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+/* ============================================
+   CROSS-BROWSER IMAGE RENDERING
+   ============================================ */
+
+/* Optimize image rendering across browsers */
+img {
+  -ms-interpolation-mode: bicubic; /* IE */
+  image-rendering: -webkit-optimize-contrast; /* Safari */
+  image-rendering: crisp-edges; /* Firefox */
+  image-rendering: -moz-crisp-edges; /* Older Firefox */
+}
+
+/* ============================================
+   CROSS-BROWSER TRANSFORM FIXES
+   ============================================ */
+
+/* Hardware acceleration for smoother animations */
+.navigation,
+.mobile-menu,
+.fleet-card,
+.team-card {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* ============================================
+   CROSS-BROWSER TRANSITION FIXES
+   ============================================ */
+
+/* Ensure transitions work across browsers */
+a,
+button,
+.nav-link,
+.fleet-card,
+.team-card {
+  -webkit-transition: all var(--transition-fast);
+  -moz-transition: all var(--transition-fast);
+  -ms-transition: all var(--transition-fast);
+  -o-transition: all var(--transition-fast);
+  transition: all var(--transition-fast);
+}
+
+/* ============================================
+   CROSS-BROWSER SCROLLBAR STYLING
+   ============================================ */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-light-blue);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-bg-light-blue);
+}
+
+/* ============================================
+   CROSS-BROWSER BOX-SIZING
+   ============================================ */
+
+/* Ensure consistent box-sizing across all browsers */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   CROSS-BROWSER VIEWPORT FIXES
+   ============================================ */
+
+/* Prevent horizontal overflow on all browsers */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* Fix for mobile browsers address bar height issues */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* ============================================
+   CROSS-BROWSER FONT RENDERING
+   ============================================ */
+
+/* Optimize font rendering across browsers */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+}
+
+/* ============================================
+   CROSS-BROWSER SELECTION STYLING
+   ============================================ */
+
+/* Custom text selection colors */
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* ============================================
+   CROSS-BROWSER PLACEHOLDER STYLING
+   ============================================ */
+
+/* Consistent placeholder styling */
+::-webkit-input-placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+/* ============================================
+   PRINT STYLES (CROSS-BROWSER)
+   ============================================ */
+
+@media print {
+  /* Optimize for printing across browsers */
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  img {
+    page-break-inside: avoid;
+  }
+  
+  h2,
+  h3,
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

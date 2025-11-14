@@ -1,0 +1,26 @@
+{
+  "name": "efs-flightschool-website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lighthouse": "lighthouse http://localhost:4173 --output=html --output-path=./lighthouse-report.html --chrome-flags=\"--headless\"",
+    "lighthouse:perf": "lighthouse http://localhost:4173 --output=json --output-path=./lighthouse-report.json --only-categories=performance --chrome-flags=\"--headless\" --quiet"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/cli": "^4.11.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "lighthouse": "^12.8.2",
+    "terser": "^5.44.1",
+    "vite": "^5.4.2"
+  }
+}

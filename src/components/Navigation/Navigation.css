@@ -1,0 +1,40 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-primary);
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  .nav-container {
+    height: 60px;
+    padding: 0 var(--spacing-md);
+  }
+}
+
+/* Enhanced keyboard navigation focus indicators - Requirement 13.6 */
+.navigation a:focus-visible,
+.navigation button:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Ensure focus is visible on all navigation elements */
+.nav-link:focus-visible,
+.mobile-menu-link:focus-visible {
+  background-color: rgba(243, 118, 38, 0.1);
+}
