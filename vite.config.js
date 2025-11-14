@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/efsflightschool/',
+  base: '/',
   assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg', '**/*.webp'],
   build: {
     // Optimize chunk size
